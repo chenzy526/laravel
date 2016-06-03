@@ -1,0 +1,43 @@
+<?php $__env->startSection('main'); ?>
+
+	<h2>新增一个页面</h2>
+	
+	<?php if($errors->any()): ?>
+            <div class="alert alert-error">
+                    <?php echo implode('<br>', $errors->all()); ?>
+
+            </div>
+    <?php endif; ?>
+    
+	<?php echo Form::open(array('route'=>'admin.articles.store')); ?>
+
+		
+		<div class="control-group">
+            <?php echo Form::label('title', 'Title'); ?>
+
+            <div class="controls">
+                <?php echo Form::text('title'); ?>
+
+            </div>
+        </div>
+        
+		<div class="control-group">
+            <?php echo Form::label('body', 'Content'); ?>
+
+            <div class="controls">
+                <?php echo Form::textarea('body'); ?>
+
+            </div>
+        </div>
+        
+        <div class="form-actions">
+            <?php echo Form::submit('新增', array('class' => 'btn btn-success btn-save btn-large')); ?>
+
+            <a href="<?php echo URL::route('admin.pages.index'); ?>" class="btn btn-large">取消</a>
+        </div>
+        
+	<?php echo Form::close(); ?>
+
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin._layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,7 @@
+<?php if(Sentry::check()): ?>
+  <ul class="nav">
+    <li class="<?php echo Request::is('admin/pages*') ? 'active' : null; ?>"><a href="<?php echo URL::route('admin.pages.index'); ?>"><i class="icon-book"></i> Pages</a></li>
+    <li class="<?php echo Request::is('admin/articles*') ? 'active' : null; ?>"><a href="<?php echo URL::route('admin.articles.index'); ?>"><i class="icon-edit"></i> Articles</a></li>
+    <li><a href="<?php echo URL::route('admin.logout'); ?>"><i class="icon-lock"></i> Logout</a></li>
+  </ul>
+<?php endif; ?>
